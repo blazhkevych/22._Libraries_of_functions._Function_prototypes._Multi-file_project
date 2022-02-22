@@ -139,7 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="arr1D.cpp" />
+    <ClCompile Include="asciilib.cpp" />
+    <ClCompile Include="datetime.cpp" />
+    <ClCompile Include="games.cpp" />
+    <ClCompile Include="mathlib.cpp" />
     <ClCompile Include="task_1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="arr1D.h" />
+    <ClInclude Include="asciilib.h" />
+    <ClInclude Include="datetime.h" />
+    <ClInclude Include="games.h" />
+    <ClInclude Include="mathlib.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\20. Двумерные массивы. Преобразование массива.pdf" />
+    <None Include="resources\21. Введение в функции. Передача массива в функцию.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\Снимок экрана 2022-02-22 141726.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

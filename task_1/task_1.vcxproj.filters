@@ -18,5 +18,53 @@
     <ClCompile Include="task_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="arr1D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mathlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="datetime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="games.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="asciilib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="arr1D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mathlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="datetime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="games.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="asciilib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\20. Двумерные массивы. Преобразование массива.pdf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\21. Введение в функции. Передача массива в функцию.pdf">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\Снимок экрана 2022-02-22 141726.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

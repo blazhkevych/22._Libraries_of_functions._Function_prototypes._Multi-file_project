@@ -1,20 +1,123 @@
-// task_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <windows.h> // Содержит SetConsoleOutputCP()
+#include "mathlib.h"
+#include "games.h"
+#include "asciilib.h"
+#include "datetime.h"
+#include "arr1D.h"
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	srand(time(0));
+	SetConsoleOutputCP(1251);
+
+	cout << "\tБиблиотеки функций. Прототипы функций. Многофайловый проект.\n\n"
+		<< "\tЗадания из предыдущего документа №21 необходимо реализовать в\n"
+		<< "виде многофайлового проекта.\n"
+		<< "\tВсе функции должны быть разделены на несколько библиотек.\n"
+		<< "\tВ проекте должно быть, по меньшей мере, три библиотеки.\n"
+		<< "Каждая библиотека должна включать два файла : \n"
+		<< "1) заголовочный файл(h - файл), в котором находятся прототипы функций; \n"
+		<< "2) файл реализации(cpp - файл), в котором находятся определения функций.\n"
+		<< "\tВ проекте в отдельном cpp - файле должна располагаться главная\n"
+		<< "функция программы(функция main), из которой должны вызываться другие\n"
+		<< "функции.\n"
+		<< "\tТаким образом, в проекте должно быть, по меньшей мере, семь файлов\n"
+		<< "– три заголовочных файла и четыре файла реализации.\n\n"
+
+		<< "\tЗадания из предыдущего документа №21.\n\n"
+
+		<< "1. Написать функцию, которая проверяет, является ли\n"
+		<< "переданное ей число простым? Число называется простым,\n"
+		<< "если оно делится без остатка только на себя и на единицу.\n";
+	cout << "Введите число: \n";
+	int number{ 0 };
+	cin >> number;
+	cout << boolalpha << IsPrime(number) << endl << endl; // boolalpha позволяет вводить и выводить булевы значения с помощью ключевых слов true и false.
+
+	cout << "2. Написать функцию, вычисляющую факториал переданного ей числа.\n"
+		<< "Введите число: \n";
+	cin >> number;
+	cout << "Факториал числа " << number << " = " << Factorial(number) << endl << endl;
+
+	cout << "3. Написать функцию, которая принимает два параметра:\n"
+		<< "основание степени и показатель степени, и вычисляет\n"
+		<< "степень числа на основе полученных данных.\n"
+		<< "Введите основание степени: \n";
+	int base_of_degree{ 0 }, exponent{ 0 };
+	cin >> base_of_degree;
+	cout << "Введите показатель степени: \n";
+	cin >> exponent;
+	cout << base_of_degree << " в степени " << exponent << " = "
+		<< DegreeOfNumber(base_of_degree, exponent) << endl << endl;
+
+	cout << "4. Написать функцию, которая получает в качестве\n"
+		<< "параметров 2 целых числа и возвращает сумму чисел из\n"
+		<< "диапазона между ними.\n"
+		<< "Введите первое число, затем второе: \n";
+	int num1{ 0 }, num2{ 0 };
+	cin >> num1 >> num2;
+	cout << "Cумма чисел из диапазона между ними : \n" << SumOfNumbersBetweenStartEnd(num1, num2) << endl << endl;
+
+	cout << "5. Число называется совершенным, если сумма всех его\n"
+		<< "делителей равна ему самому. Написать функцию поиска\n"
+		<< "таких чисел во введенном интервале.\n"
+		<< "Введите начало интервала, затем конец: \n";
+	cin >> num1 >> num2;
+	cout << "Совершенные числа из указанного диапазона : \n";
+	PrintPerfectNumber(num1, num2);
+	cout << endl << endl;
+
+	cout << "6. Написать функцию, выводящую на экран переданную ей\n"
+		<< "игральную карту.\n"
+		<< "Введите номер карты (0-35): \n";
+	cin >> number;
+	SetConsoleOutputCP(866);
+	PrintPlayingCard(number); // из-за "SetConsoleOutputCP(1251);" выдает не правильный вывод карты (проблема не решена для этого проекта)
+	SetConsoleOutputCP(1251);
+	cout << endl << endl;
+
+	cout << "7. Написать функцию, проверяющую является ли переданный\n" // возможна проблема с выводом
+		<< "ей параметр алфавитно-цифровым.\n"
+		<< "Enter the parameter: \n";
+	char x{ 0 };
+	cin >> x;
+	if (alphanumeric(x))
+		cout << "The passed parameter is alphanumeric.\n";
+	else
+		cout << "The passed parameter is not alphanumeric.\n\n";
+
+	cout << "8. Написать функцию, которая принимает две даты (т .е.\n"
+		<< "функция принимает шесть параметров) и вычисляет\n"
+		<< "разность в днях между этими датами. Для решения этой\n"
+		<< "задачи необходимо также написать функцию, которая\n"
+		<< "определяет, является ли год високосным.\n";
+	int day1{ 1 }, month1{ 2 }, year1{ 2022 }, day2{ 19 }, month2{ 2 }, year2{ 2022 };
+	cout << "Разница в дня между "
+		<< day1 << '.' << month1 << '.' << year1 << " и "
+		<< day2 << '.' << month2 << '.' << year2
+		<< " составляет " << DiffInDaysBetwDates(day1, month1, year1, day2, month2, year2) << " дней." << endl << endl;
+
+	cout << "9. Написать функцию, меняющую порядок следования\n"
+		<< "элементов передаваемого ей массива на\n"
+		<< "противоположный.\n";
+	const int size{ 6 }; // Размер одномерного массива. 
+	int arr[size]{ 0 }; // Инициализируем двумерный массив.
+	Init1DArrayRandom(arr, size, 0, 100);
+	cout << "Исходный массив: \t";
+	Print1DArray(arr, size);
+	Reverses1DElemArray(arr, size);
+	cout << endl;
+	cout << "Обработанный массив: \t";
+	Print1DArray(arr, size);
+	cout << endl << endl;
+
+	cout << "10. Написать функцию, возвращающую количество\n"
+		<< "простых чисел в передаваемом ей массиве.\n";
+	Init1DArrayRandom(arr, size, 0, 100);
+	Print1DArray(arr, size);
+	cout << endl << "Простых чисел в массиве: " << NumberOfPrimesIn1DArr(arr, size) << endl << endl;
+
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
